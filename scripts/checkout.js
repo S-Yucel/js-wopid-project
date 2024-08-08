@@ -6,6 +6,8 @@ import { deliveryOptions } from '../data/deliveryOptions.js';
 
 const today = dayjs();
 
+function renderOrderSummary() {
+
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem) => {
@@ -96,6 +98,10 @@ document.querySelectorAll('.js-delivery-option').forEach((element) => {
   element.addEventListener('click', () => {
     const {productId, deliveryOptionId} = element.dataset;
     updateDeliveryOption(productId, deliveryOptionId);
-
+    renderOrderSummary();
   })
-})
+});
+
+}
+
+renderOrderSummary();
