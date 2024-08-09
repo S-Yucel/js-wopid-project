@@ -96,13 +96,13 @@ export function renderOrderSummary() {
             });
         });
 
-        document.querySelectorAll('.js-delivery-option').forEach((element) => {
-            element.addEventListener('click', () => {
-                const {productId, deliveryOptionId} = element.dataset;
-                updateDeliveryOption(productId, deliveryOptionId);
-                renderOrderSummary();
-                renderPaymentSummary(); // renderPaymentSummary fonksiyonu doğru şekilde çağrıldı
-            });
+        document.querySelectorAll('.js-delivery-option input[type="radio"]').forEach((element) => {
+          element.addEventListener('change', () => {
+              const {productId, deliveryOptionId} = element.closest('.js-delivery-option').dataset;
+              updateDeliveryOption(productId, deliveryOptionId);
+              renderOrderSummary();
+              renderPaymentSummary();
+          });
         });
     }
 
