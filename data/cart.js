@@ -37,6 +37,15 @@ export function addToCart(productId) {
   saveToStorage();
 }
 
+export function updateCartQuantity(productId, newQuantity) {
+  const cartItem = cart.find(item => item.productId === productId);
+  if (cartItem) {
+    cartItem.quantity = newQuantity;
+    saveToStorage(); // Değişiklikleri kaydedin
+  }
+}
+
+
 export function updateDeliveryOption(productId, deliveryOptionId) {
   let matchingItem;
 

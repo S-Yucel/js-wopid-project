@@ -1,4 +1,4 @@
-import { cart, removeFromCart, updateDeliveryOption } from '../../data/cart.js';
+import { cart, removeFromCart, updateDeliveryOption, updateCartQuantity } from '../../data/cart.js';
 import { getProduct } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
@@ -21,7 +21,7 @@ export function renderOrderSummary() {
             const dateString = deliveryDate.format('dddd, MMMM D');
 
             cartSummaryHTML += `
-            <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
+            <div class="cart-item-container js-cart-item-container-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
                 <div class="delivery-date">
                     Delivery date: ${dateString}
                 </div>
@@ -37,7 +37,7 @@ export function renderOrderSummary() {
                         </div>
                         <div class="product-quantity js-product-quantity-${matchingProduct.id}">
                             <span>
-                                Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+                                Quantity: <input type="number" class="js-new-quantity-input new-quantity-input" value="${cartItem.quantity}" min="1">
                             </span>
                             <span class="update-quantity-link link-primary">Update</span>
                             <span class="delete-quantity-link link-primary js-delete-link-${matchingProduct.id}" data-product-id="${matchingProduct.id}">Delete</span>
@@ -79,26 +79,49 @@ export function renderOrderSummary() {
 
     document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
 
-    console.log(cartSummaryHTML);
-
-    addEventListeners(); // Fonksiyon ismi düzeltildi
+    addEventListeners();
 
     function addEventListeners() {
+        // Delete link event listener
         document.querySelectorAll('.js-delete-link').forEach((link) => {
             link.addEventListener('click', (event) => {
                 const productId = event.target.dataset.productId;
                 removeFromCart(productId);
-
-                const container = document.querySelector(`.js-cart-item-container-${productId}`);
-                container.remove();
+                renderOrderSummary();
                 renderPaymentSummary();
             });
         });
 
+        // Delivery option change event listener
         document.querySelectorAll('.js-delivery-option input[type="radio"]').forEach((element) => {
             element.addEventListener('change', () => {
                 const { productId, deliveryOptionId } = element.closest('.js-delivery-option').dataset;
                 updateDeliveryOption(productId, deliveryOptionId);
+                renderOrderSummary();
+                renderPaymentSummary();
+            });
+        });
+
+        // Update quantity link event listener
+        document.querySelectorAll('.update-quantity-link').forEach((link) => {
+            link.addEventListener('click', (event) => {
+                const productId = event.target.closest('.cart-item-container').dataset.productId;
+                const inputElement = event.target.closest('.cart-item-details').querySelector('.js-new-quantity-input');
+                const newQuantity = parseInt(inputElement.value, 10);
+
+                if (!isNaN(newQuantity) && newQuantity > 0) {
+                    updateCartQuantity(productId, newQuantity);
+                    renderOrderSummary();
+                    renderPaymentSummary();
+                }
+            });
+        });
+
+        // Delete quantity link event listener
+        document.querySelectorAll('.delete-quantity-link').forEach((link) => {
+            link.addEventListener('click', (event) => {
+                const productId = event.target.closest('.cart-item-container').dataset.productId;
+                removeFromCart(productId);
                 renderOrderSummary();
                 renderPaymentSummary();
             });
