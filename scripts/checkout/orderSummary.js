@@ -55,6 +55,20 @@ export function renderOrderSummary() {
         }
     });
 
+    document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
+
+    // Place Order butonunun durumunu kontrol et ve güncelle
+    const placeOrderButton = document.querySelector('.place-order-button');
+
+    if (cart.length === 0) {
+        placeOrderButton.disabled = true;
+        placeOrderButton.innerText = 'Your cart is empty';
+    } else {
+        placeOrderButton.disabled = false;
+    }
+
+    addEventListeners();
+
     function deliveryOptionsHTML(matchingProduct, cartItem) {
         let html = '';
         deliveryOptions.forEach((deliveryOption) => {
@@ -77,12 +91,7 @@ export function renderOrderSummary() {
         return html;
     }
 
-    document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
-
-    addEventListeners();
-
     function addEventListeners() {
-        // Delete link event listener
         document.querySelectorAll('.js-delete-link').forEach((link) => {
             link.addEventListener('click', (event) => {
                 const productId = event.target.dataset.productId;
@@ -92,7 +101,6 @@ export function renderOrderSummary() {
             });
         });
 
-        // Delivery option change event listener
         document.querySelectorAll('.js-delivery-option input[type="radio"]').forEach((element) => {
             element.addEventListener('change', () => {
                 const { productId, deliveryOptionId } = element.closest('.js-delivery-option').dataset;
@@ -102,7 +110,6 @@ export function renderOrderSummary() {
             });
         });
 
-        // Update quantity link event listener
         document.querySelectorAll('.update-quantity-link').forEach((link) => {
             link.addEventListener('click', (event) => {
                 const productId = event.target.closest('.cart-item-container').dataset.productId;
@@ -117,7 +124,6 @@ export function renderOrderSummary() {
             });
         });
 
-        // Delete quantity link event listener
         document.querySelectorAll('.delete-quantity-link').forEach((link) => {
             link.addEventListener('click', (event) => {
                 const productId = event.target.closest('.cart-item-container').dataset.productId;
