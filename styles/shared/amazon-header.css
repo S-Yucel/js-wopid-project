@@ -61,7 +61,7 @@
 
 .amazon-header-middle-section {
   flex: 1;
-  max-width: 850px;
+  max-width: 750px;
   margin-left: 10px;
   margin-right: 10px;
   display: flex;
@@ -97,7 +97,7 @@
 }
 
 .amazon-header-right-section {
-  width: 180px;
+  width: 300px;
   flex-shrink: 0;
   display: flex;
   justify-content: end;
@@ -146,4 +146,12 @@
   
   width: 26px;
   text-align: center;
+}
+
+.sign-in-text {
+  color: white;
+  margin-top: 12px;
+  margin-right: 12px;
+  font-size: 15px;
+  font-weight: 700;
 }

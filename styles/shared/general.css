@@ -99,3 +99,9 @@ select:focus,
 input:focus {
   outline: 2px solid rgb(255, 153, 0);
 }
+
+.create-account-text {
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+}
