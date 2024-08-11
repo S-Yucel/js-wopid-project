@@ -1,0 +1,25 @@
+.sign-in-container {
+  width: 300px;
+  text-align: center;
+}
+
+.sign-in-box {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.sign-in-box h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.sign-in-box input[type="text"],
+.sign-in-box input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}

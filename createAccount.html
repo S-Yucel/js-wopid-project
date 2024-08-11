@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="styles/shared/general.css">
+    <link rel="stylesheet" href="styles/pages/create-account.css">
+</head>
+<body>
+    <div class="create-account-container">
+        <img src="images/amazon-logo.png" alt="Amazon Logo" class="logo">
+        
+        <div class="create-account-box">
+            <h1>Create Account</h1>
+            <form id="create-account-form">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="password-check">Re-enter password</label>
+                <input type="password" id="password-check" name="password-check" required>
+
+                <button type="submit" class="button-primary">Create your Amazon account</button>
+            </form>
+            <p>By creating an account, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.</p>
+            <p>Already have an account? <a href="sign-in.html">Sign-In</a></p>
+        </div>
+    </div>
+</body>
+</html>
