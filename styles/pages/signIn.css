@@ -1,25 +1,151 @@
-.sign-in-container {
-  width: 300px;
+/* Genel düzen */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
   text-align: center;
 }
 
-.sign-in-box {
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
+header .logo img {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 150px; 
+  height: auto;
+}
+
+.sign-in-container {
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.sign-in-box h1 {
-  font-size: 24px;
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #f0c14b;
+  border: 1px solid #a88734;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  color: #111;
+  text-decoration: none;
+  cursor: pointer;
   margin-bottom: 20px;
 }
 
-.sign-in-box input[type="text"],
-.sign-in-box input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.btn-primary {
+  background-color: #f0c14b;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+}
+
+.terms {
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+}
+
+.terms a {
+  color: #0066c0;
+  text-decoration: none;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+.help-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.help-links a {
+  display: block;
+  color: #0066c0;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.help-links a:hover {
+  text-decoration: underline;
+}
+
+.new-to-amazon {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.divider h5 {
+  margin-bottom: 15px;
+  color: #888;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+footer ul li a {
+  color: #0066c0;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  font-size: 12px;
+  color: #555;
 }

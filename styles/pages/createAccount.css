@@ -1,26 +1,101 @@
-.create-account-container {
-  width: 350px;
-  text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f3f3;
+  margin: 0;
+  padding: 0;
 }
 
-.create-account-box {
-  background-color: #fff;
+.container {
+  max-width: 350px;
+  margin: 0 auto;
   padding: 20px;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
-.create-account-box h1 {
+header .logo img {
+  max-width: 100px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.create-account-container h1 {
   font-size: 24px;
+  font-weight: normal;
   margin-bottom: 20px;
 }
 
-.create-account-box input[type="text"],
-.create-account-box input[type="email"],
-.create-account-box input[type="password"] {
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.input-group input {
   width: 100%;
   padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
+  font-size: 14px;
+  border: 1px solid #a6a6a6;
   border-radius: 4px;
+}
+
+.btn {
+  background-color: #f0c14b;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  padding: 10px 0;
+  font-size: 16px;
+  border-radius: 3px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.terms,
+.sign-in-link {
+  font-size: 12px;
+  color: #555;
+  margin-top: 20px;
+}
+
+.terms a,
+.sign-in-link a {
+  color: #0066c0;
+  text-decoration: none;
+}
+
+.terms a:hover,
+.sign-in-link a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+}
+
+footer ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+footer ul li a {
+  color: #0066c0;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
 }
