@@ -39,8 +39,9 @@
 }
 
 .wopid-logo {
-  width: 150px;
-  margin-top: 5px;
+  width: 125px;
+  height: 125px;
+  display:inline-block;
 }
 
 .wopid-mobile-logo {
@@ -49,7 +50,7 @@
 
 @media (max-width: 575px) {
   .wopid-logo {
-    display: none;
+    display: flex;
   }
 
   .wopid-mobile-logo {
